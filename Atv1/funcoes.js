@@ -48,9 +48,11 @@ var idade;
 var h3resFE;
 
 function FaixaEtaria(){
+    /* Puxando o valor do formulario para a variável e puxando também o h3 para a exibição da resposta */
     idade = parseInt(document.formFE.idade.value);
     h3resFE = document.querySelector("#resFE");
 
+    /* Uso do SWITCH para verificar sua faixa etária e já enviando a resposta ao elemento html */
     switch(true){
         case(idade >= 0 && idade < 15): h3resFE.innerText = `Você é CRIANÇA!`; break;
         case(idade >= 15 && idade < 30): h3resFE.innerText = `Você é JOVEM!`; break;
@@ -58,4 +60,37 @@ function FaixaEtaria(){
         case(idade >= 60): h3resFE.innerText = `Você é IDOSO!`; break;
         case(idade < 0): h3resFE.innerText = `Idade não pode ser menor do que 0!`; break;
     }
+}
+
+/* EXC 3 - Média Ponderada */
+
+/* Declaração das variáveis principais */
+var atvPratica;
+var provaSem;
+var trabTeorico;
+var h3resMP;
+
+function CalcMedia(){
+    /* Puxando os valores do formulario para as variáveis e tamvém o h3 para amostragem do resultado na tela */
+    atvPratica = parseFloat(document.formMP.atvPratica.value);
+    provaSem = parseFloat(document.formMP.provaSem.value);
+    trabTeorico = parseFloat(document.formMP.trabTeorico.value);
+    h3resMP = document.querySelector("#resMP");
+
+    /* Cálculo da média e criação da variável de classificação */
+    media = ((atvPratica * 2) + (provaSem * 5) + (trabTeorico * 3)) / 10;
+    let classificacao = '';
+
+    /* Uso do SWITCH para saber a classificação do aluno baseado na sua nota */
+    switch(true){
+        case (media >= 0 && media <= 5): classificacao = 'F'; break;
+        case (media > 5 && media <= 6): classificacao = 'E'; break;
+        case (media > 6 && media <= 7): classificacao = 'D'; break;
+        case (media > 7 && media <= 8): classificacao = 'C'; break;
+        case (media > 8 && media <= 9): classificacao = 'B'; break;
+        case (media > 9 && media <= 10): classificacao = 'A'; break;
+    }
+
+    /* Exibição do resultado no html */
+    h3resMP.innerText = `A média do aluno é = ${media}, e sua classificação é ${classificacao}!`;
 }

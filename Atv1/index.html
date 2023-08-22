@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 1 de DW2</title>
+    <script src="funcoes.js" defer></script>
+</head>
+<body>
+    <h1>Formulário para o IMC</h1>
+    <form name="formIMC">
+        <p>Insira seu nome: <input type="text" name="nome"></p>
+        <p>Insira a sua altura(cm): <input type="number" name="altura"></p>
+        <p>Insira seu peso(kg): <input type="number" name="peso"></p>
+        <input type="button" name="btn_calcular" value="Calcular IMC" onclick="CalcIMC()">
+        <input type="reset" name="btn_cancelar" value="Cancelar">
+    </form>
+    <h3 id="resIMC"></h3>
+
+    <hr>
+
+    <h1>Formulário para a Faixa Etária</h1>
+    <form name="formFE">
+        <p>Insira sua idade: <input type="number" name="idade"></p>
+        <input type="button" name="btn_revelar" value="Revelar faixa etária" onclick="FaixaEtaria()">
+        <input type="reset" name="btn_cancelar2" value="Cancelar">
+    </form>
+    <h3 id="resFE"></h3>
+</body>
+</html>

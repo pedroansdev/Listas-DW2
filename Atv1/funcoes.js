@@ -94,3 +94,60 @@ function CalcMedia(){
     /* Exibição do resultado no html */
     h3resMP.innerText = `A média do aluno é = ${media}, e sua classificação é ${classificacao}!`;
 }
+
+/* EXC 4 - Fretamento de peças */
+
+var distancia;
+var quantia;
+var regioes;
+var simSelec;
+var naoSelec;
+var valFrete;
+var valDesconto;
+var conta;
+var h3resFrete;
+var valorUnicoFrete;
+
+function CalcFrete(){
+    distancia = parseFloat(document.formFrete.distancia.value);
+    quantia = parseFloat(document.formFrete.quantia.value);
+    regioes = document.querySelector("#regioes");
+    simSelec = document.querySelector("#sim");
+    naoSelec = document.querySelector("#nao");
+    h3resFrete = document.querySelector("#resFrete");
+    
+    let regiao = regioes.options[regioes.selectedIndex].value;
+
+    if(regiao == 'sul'){
+        valFrete = 1;
+        valDesconto = 0.90; // Como tem 10% de desconto, o valor ficará 90% do que era pra ser
+    } else if(regiao == 'sudeste'){
+        valFrete = 1.20;
+        valDesconto = 0.88; // Como tem 12% de desconto, o valor ficará 88% do que era pra ser
+    } else{
+        valFrete = 1.30;
+        valDesconto = 0.87; // Como tem 13% de desconto, o valor ficará 87% do que era pra ser
+    }
+
+    console.log('Região selecionada, valfrete e valdesconto: ' + regiao + ' ' + valFrete + ' ' + valDesconto);
+
+    if(simSelec.checked == true && quantia > 1000){
+        valorUnicoFrete = (1000 * valFrete) + ((quantia - 1000) * (valFrete * valDesconto));
+        conta = valorUnicoFrete + distancia + 200;
+    } else if(simSelec.checked == true && quantia <= 1000){
+        valorUnicoFrete = (quantia * valFrete);
+        conta = valorUnicoFrete + distancia + 200;
+    } else if(naoSelec.checked == true && quantia > 1000){
+        valorUnicoFrete = (1000 * valFrete) + ((quantia - 1000) * (valFrete * valDesconto));
+        conta = valorUnicoFrete + distancia;
+    } else{
+        valorUnicoFrete = (quantia * valFrete);
+        conta = valorUnicoFrete + distancia;
+    }
+
+    console.log('SimSelec e NaoSelec' + simSelec + ' ' + naoSelec)
+
+    console.log(conta);
+
+    h3resFrete.innerText = `Taxa do rastreamento: R$ 200.00\nValor do frete pelas peças: R$ ${valFrete.toFixed(2)}/ Total: R$ ${valorUnicoFrete.toFixed(2)}\nValor do frete por quilômetro: R$ 1.00 / Total: R$ ${distancia.toFixed(2)}\nTotal do frete: R$ ${conta.toFixed(2)}`
+}

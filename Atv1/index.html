@@ -38,5 +38,23 @@
         <input type="reset" name="btn_cancelar3" value="Cancelar">
     </form>
     <h3 id="resMP"></h3>
-</body>
+
+    <hr>
+
+    <h1>Formulário para o Fretamento de Peças</h1>
+    <form name="formFrete">
+        <p>Insira a distância em km: <input type="number" name="distancia"></p>
+        <p>Insira a quantia de peças: <input type="number" name="quantia"></p>
+        <p><label for="regioes">Escolha a região: </label></p>
+        <select name="regioes" id="regioes">
+            <option value="sul">1 - SUL</option>
+            <option value="sudeste">2 - SUDESTE</option>
+            <option value="centro">3 - CENTRO-OESTE</option>
+        </select>
+        <p>Você deseja rastreamento das peças? <input type="radio" name="escolha" id="sim"> SIM <input type="radio" name="escolha" id="nao"> NÃO </p>
+        <input type="button" name="btn_calcularFrete" value="Calcular Frete" onclick="CalcFrete()">
+        <input type="reset" name="btn_cancelar4" value="Cancelar">
+    </form>
+    <h3 id="resFrete"></h3>
+</body> 
 </html>

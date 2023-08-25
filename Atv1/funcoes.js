@@ -100,6 +100,7 @@ function CalcMedia(){
 var distancia;
 var quantia;
 var regioes;
+var litroComb;
 var simSelec;
 var naoSelec;
 var valFrete;
@@ -111,11 +112,13 @@ var valorUnicoFrete;
 function CalcFrete(){
     distancia = parseFloat(document.formFrete.distancia.value);
     quantia = parseFloat(document.formFrete.quantia.value);
+    litroComb = parseFloat(document.formFrete.litro.value);
     regioes = document.querySelector("#regioes");
     simSelec = document.querySelector("#sim");
     naoSelec = document.querySelector("#nao");
     h3resFrete = document.querySelector("#resFrete");
     
+    let totalComb = distancia * litroComb;
     let regiao = regioes.options[regioes.selectedIndex].value;
 
     if(regiao == 'sul'){
@@ -133,21 +136,21 @@ function CalcFrete(){
 
     if(simSelec.checked == true && quantia > 1000){
         valorUnicoFrete = (1000 * valFrete) + ((quantia - 1000) * (valFrete * valDesconto));
-        conta = valorUnicoFrete + distancia + 200;
+        conta = valorUnicoFrete + totalComb + 200;
     } else if(simSelec.checked == true && quantia <= 1000){
         valorUnicoFrete = (quantia * valFrete);
-        conta = valorUnicoFrete + distancia + 200;
+        conta = valorUnicoFrete + totalComb + 200;
     } else if(naoSelec.checked == true && quantia > 1000){
         valorUnicoFrete = (1000 * valFrete) + ((quantia - 1000) * (valFrete * valDesconto));
-        conta = valorUnicoFrete + distancia;
+        conta = valorUnicoFrete + totalComb;
     } else{
         valorUnicoFrete = (quantia * valFrete);
-        conta = valorUnicoFrete + distancia;
+        conta = valorUnicoFrete + totalComb;
     }
 
     console.log('SimSelec e NaoSelec' + simSelec + ' ' + naoSelec)
 
     console.log(conta);
 
-    h3resFrete.innerText = `Taxa do rastreamento: R$ 200.00\nValor do frete pelas peças: R$ ${valFrete.toFixed(2)}/ Total: R$ ${valorUnicoFrete.toFixed(2)}\nValor do frete por quilômetro: R$ 1.00 / Total: R$ ${distancia.toFixed(2)}\nTotal do frete: R$ ${conta.toFixed(2)}`
+    h3resFrete.innerText = `Taxa do rastreamento: R$ 200.00\nValor do frete pelas peças: R$ ${valFrete.toFixed(2)}/ Total: R$ ${valorUnicoFrete.toFixed(2)}\nValor do frete por quilômetro: R$ ${litroComb.toFixed(2)} / Total: R$ ${totalComb.toFixed(2)}\nTotal do frete: R$ ${conta.toFixed(2)}`
 }

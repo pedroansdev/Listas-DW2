@@ -134,6 +134,13 @@ function CalcFrete(){
     h3resFrete.innerText = `Taxa do rastreamento: R$ 200.00\nValor do frete pelas peças: R$ ${valFrete.toFixed(2)}/ Total: R$ ${valorUnicoFrete.toFixed(2)}\nValor do frete por quilômetro: R$ ${litroComb.toFixed(2)} / Total: R$ ${totalComb.toFixed(2)}\nTotal do frete: R$ ${conta.toFixed(2)}`
 }
 
+/* EXC 5 */
+
+function CalcPagamento(){
+    const codigo = parseInt(document.formPagamento.codigo.value);
+    const horasTrab = parseInt(document.formPagamento.horasTrab.value);
+}
+
 /* EXC 6 - Cálculo Aritmético */
 
 function CalcAritm(){
@@ -175,26 +182,29 @@ function TransData(){
     let mes = dataSplit[1];
     let mesExtenso = '';
 
-    if(parseInt(mes) > 0 && parseInt(mes) <= 12){
-        switch(parseInt(mes)){
-            case 1: mesExtenso = 'Janeiro'; break;
-            case 2: mesExtenso = 'Fevereiro'; break;
-            case 3: mesExtenso = 'Março'; break;
-            case 4: mesExtenso = 'Abril'; break;
-            case 5: mesExtenso = 'Maio'; break;
-            case 6: mesExtenso = 'Junho'; break;
-            case 7: mesExtenso = 'Julho'; break;
-            case 8: mesExtenso = 'Agosto'; break;
-            case 9: mesExtenso = 'Setembro'; break;
-            case 10: mesExtenso = 'Outubro'; break;
-            case 11: mesExtenso = 'Novembro'; break;
-            case 12: mesExtenso = 'Dezembro'; break;
-        }
-
-        h3resData.innerText = `${dataSplit[0]} de ${mesExtenso} de ${dataSplit[2]}`;
-        
-    } else{
+    if(parseInt(mes) <= 0 || parseInt(mes) > 12){
         h3resData.innerText = `O mês colocado é inválido! Tem q ser entre 1 e 12!`
+        return
+    } else if(parseInt(dataSplit[0]) > 31 || parseInt(dataSplit[0]) < 1) {
+        h3resData.innerText = `O dia colocado é inválido! Tem q ser entre 1 e 31!`
+        return 
     }
+
+    switch(parseInt(mes)){
+        case 1: mesExtenso = 'Janeiro'; break;
+        case 2: mesExtenso = 'Fevereiro'; break;
+        case 3: mesExtenso = 'Março'; break;
+        case 4: mesExtenso = 'Abril'; break;
+        case 5: mesExtenso = 'Maio'; break;
+        case 6: mesExtenso = 'Junho'; break;
+        case 7: mesExtenso = 'Julho'; break;
+        case 8: mesExtenso = 'Agosto'; break;
+        case 9: mesExtenso = 'Setembro'; break;
+        case 10: mesExtenso = 'Outubro'; break;
+        case 11: mesExtenso = 'Novembro'; break;
+        case 12: mesExtenso = 'Dezembro'; break;
+    }
+
+    h3resData.innerText = `${dataSplit[0]} de ${mesExtenso} de ${dataSplit[2]}`;
     
 }

@@ -59,6 +59,24 @@
     <h3 id="resFrete"></h3>
 
     <hr>
+    <h1> Formulário para a Folha de Pagamento </h1>
+    <form name="formPagamento">
+        <p>Insira o código do funcionário: <input type="number" name="codigo"></p>
+        <p>Insira as horas trabalhadas no mês: <input type="number" name="horasTrab"></p>
+        <p><label for="turnos">Escolha o turno: </label></p>
+        <select name="turnos" id="turnos">
+            <option value="M">Matutino</option>
+            <option value="V">Vespertino</option>
+            <option value="N">Noturno</option>
+        </select>
+        <p><label for="categoria">Escolha a categoria: </label></p>
+        <select name="categoria" id="categoria">
+            <option value="F">Funcionário</option>
+            <option value="G">Gerente</option>
+        </select>
+    </form>
+    
+    <hr>
 
     <h1> Formulário para o Cálculo Aritmético </h1>
     <form name="calcAritmetico">

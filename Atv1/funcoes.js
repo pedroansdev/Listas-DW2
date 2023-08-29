@@ -1,19 +1,15 @@
 /* EXC 1 - IMC */
 
 /* Declaração das variáveis principais */
-var nome;
-var altura;
-var peso;
-var h3resIMC;
 
 function CalcIMC(){
     /* Puxando os valores do formulario para as variáveis e já convertendo */
-    nome = document.formIMC.nome.value;
-    altura = parseFloat(document.formIMC.altura.value) / 100;
-    peso = parseFloat(document.formIMC.peso.value);
+    const nome = document.formIMC.nome.value;
+    const altura = parseFloat(document.formIMC.altura.value) / 100;
+    const peso = parseFloat(document.formIMC.peso.value);
 
     /* Indicando o H3 para a amostragem do resultado */
-    h3resIMC = document.querySelector("#resIMC");
+    let h3resIMC = document.querySelector("#resIMC");
 
     /* Conta do IMC e declaração da variável resultado */
     let imc = peso / (altura ** 2);
@@ -44,13 +40,11 @@ function CalcIMC(){
 /* EXC 2 - Faixa Etária */
 
 /* Declaração da variável */
-var idade;
-var h3resFE;
 
 function FaixaEtaria(){
     /* Puxando o valor do formulario para a variável e puxando também o h3 para a exibição da resposta */
-    idade = parseInt(document.formFE.idade.value);
-    h3resFE = document.querySelector("#resFE");
+    const idade = parseInt(document.formFE.idade.value);
+    let h3resFE = document.querySelector("#resFE");
 
     /* Uso do SWITCH para verificar sua faixa etária e já enviando a resposta ao elemento html */
     switch(true){
@@ -65,20 +59,16 @@ function FaixaEtaria(){
 /* EXC 3 - Média Ponderada */
 
 /* Declaração das variáveis principais */
-var atvPratica;
-var provaSem;
-var trabTeorico;
-var h3resMP;
 
 function CalcMedia(){
     /* Puxando os valores do formulario para as variáveis e tamvém o h3 para amostragem do resultado na tela */
-    atvPratica = parseFloat(document.formMP.atvPratica.value);
-    provaSem = parseFloat(document.formMP.provaSem.value);
-    trabTeorico = parseFloat(document.formMP.trabTeorico.value);
-    h3resMP = document.querySelector("#resMP");
+    const atvPratica = parseFloat(document.formMP.atvPratica.value);
+    const provaSem = parseFloat(document.formMP.provaSem.value);
+    const trabTeorico = parseFloat(document.formMP.trabTeorico.value);
+    let h3resMP = document.querySelector("#resMP");
 
     /* Cálculo da média e criação da variável de classificação */
-    media = ((atvPratica * 2) + (provaSem * 5) + (trabTeorico * 3)) / 10;
+    let media = ((atvPratica * 2) + (provaSem * 5) + (trabTeorico * 3)) / 10;
     let classificacao = '';
 
     /* Uso do SWITCH para saber a classificação do aluno baseado na sua nota */
@@ -97,27 +87,20 @@ function CalcMedia(){
 
 /* EXC 4 - Fretamento de peças */
 
-var distancia;
-var quantia;
-var regioes;
-var litroComb;
-var simSelec;
-var naoSelec;
-var valFrete;
-var valDesconto;
-var conta;
-var h3resFrete;
-var valorUnicoFrete;
-
 function CalcFrete(){
-    distancia = parseFloat(document.formFrete.distancia.value);
-    quantia = parseFloat(document.formFrete.quantia.value);
-    litroComb = parseFloat(document.formFrete.litro.value);
-    regioes = document.querySelector("#regioes");
-    simSelec = document.querySelector("#sim");
-    naoSelec = document.querySelector("#nao");
-    h3resFrete = document.querySelector("#resFrete");
+    const distancia = parseFloat(document.formFrete.distancia.value);
+    const quantia = parseFloat(document.formFrete.quantia.value);
+    const litroComb = parseFloat(document.formFrete.litro.value);
+    const regioes = document.querySelector("#regioes");
+    const simSelec = document.querySelector("#sim");
+    const naoSelec = document.querySelector("#nao");
+    let h3resFrete = document.querySelector("#resFrete");
     
+    let valFrete = 0;
+    let valDesconto = 0;
+    let valorUnicoFrete = 0;
+    let conta = 0;
+
     let totalComb = distancia * litroComb;
     let regiao = regioes.options[regioes.selectedIndex].value;
 
@@ -148,9 +131,70 @@ function CalcFrete(){
         conta = valorUnicoFrete + totalComb;
     }
 
-    console.log('SimSelec e NaoSelec' + simSelec + ' ' + naoSelec)
-
-    console.log(conta);
-
     h3resFrete.innerText = `Taxa do rastreamento: R$ 200.00\nValor do frete pelas peças: R$ ${valFrete.toFixed(2)}/ Total: R$ ${valorUnicoFrete.toFixed(2)}\nValor do frete por quilômetro: R$ ${litroComb.toFixed(2)} / Total: R$ ${totalComb.toFixed(2)}\nTotal do frete: R$ ${conta.toFixed(2)}`
+}
+
+/* EXC 6 - Cálculo Aritmético */
+
+function CalcAritm(){
+    const num1 = parseFloat(document.calcAritmetico.num1.value);
+    const num2 = parseFloat(document.calcAritmetico.num2.value);
+    const operacao = document.calcAritmetico.operacao.value;
+    let h3resAritm = document.querySelector("#resAritmetico");
+
+    let conta = 0;
+
+    if(operacao.toLowerCase() == 'soma'){
+        conta = num1 + num2;
+    } else if(operacao.toLowerCase() == 'subtração'){
+        conta = num1 - num2; 
+    } else if(operacao.toLowerCase() == 'multiplicação'){
+        conta = num1 * num2;
+    } else if(operacao.toLowerCase() == 'divisão'){
+        conta = num1 / num2;
+    } else if(operacao.toLowerCase() == 'potenciação'){
+        conta = num1 ** num2;
+    } else{
+        resp = 'Operação escrita de forma errônea ou indisponível!';
+    }
+
+    if(conta > 0){
+        h3resAritm.innerText = `O resultado da conta é: ${conta}`;
+    } else{
+        h3resAritm.innerText = resp;
+    }
+}
+
+/* EXC 7 - Data por Extenso */
+
+function TransData(){
+    const data = document.formData.data.value;
+    let h3resData = document.querySelector("#resData");
+
+    let dataSplit = data.split('/');
+    let mes = dataSplit[1];
+    let mesExtenso = '';
+
+    if(parseInt(mes) > 0 && parseInt(mes) <= 12){
+        switch(parseInt(mes)){
+            case 1: mesExtenso = 'Janeiro'; break;
+            case 2: mesExtenso = 'Fevereiro'; break;
+            case 3: mesExtenso = 'Março'; break;
+            case 4: mesExtenso = 'Abril'; break;
+            case 5: mesExtenso = 'Maio'; break;
+            case 6: mesExtenso = 'Junho'; break;
+            case 7: mesExtenso = 'Julho'; break;
+            case 8: mesExtenso = 'Agosto'; break;
+            case 9: mesExtenso = 'Setembro'; break;
+            case 10: mesExtenso = 'Outubro'; break;
+            case 11: mesExtenso = 'Novembro'; break;
+            case 12: mesExtenso = 'Dezembro'; break;
+        }
+
+        h3resData.innerText = `${dataSplit[0]} de ${mesExtenso} de ${dataSplit[2]}`;
+        
+    } else{
+        h3resData.innerText = `O mês colocado é inválido! Tem q ser entre 1 e 12!`
+    }
+    
 }

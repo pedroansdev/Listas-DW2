@@ -139,6 +139,36 @@ function CalcFrete(){
 function CalcPagamento(){
     const codigo = parseInt(document.formPagamento.codigo.value);
     const horasTrab = parseInt(document.formPagamento.horasTrab.value);
+    const salMinimo = parseFloat(document.formPagamento.salMinimo.value);
+    const turnos = document.querySelector("#turnos");
+    const categorias = document.querySelector("#categorias");
+    const h3resSalario = document.querySelector("#resSalario");
+
+    const turno = turnos.options[turnos.selectedIndex].value;
+    const categoria = categorias.options[categorias.selectedIndex].value;
+
+    let salHora = 0;
+
+    if(categoria == 'G'){
+        salHora = salMinimo * 0.04;
+    } else if(categoria == 'F' && turno == 'N'){
+        salHora = salMinimo * 0.02;
+    } else{
+        salHora = salMinimo * 0.01;
+    }
+
+    const salInicial = salHora * horasTrab;
+    let auxAlimentacao = 0;
+
+    if(salInicial > 1200){
+        auxAlimentacao = salInicial * 0.15;
+    } else if(salInicial >= 800){
+        auxAlimentacao = salInicial * 0.20;
+    } else{
+        auxAlimentacao = salInicial * 0.25;
+    }
+
+    h3resSalario.innerText = `Código do Funcionário/Gerente: ${codigo}\nNúmero de horas trabalhadas: ${horasTrab}h / Valor de cada hora: R$${salHora.toFixed(2)}\nSalário Inicial: R$${salInicial.toFixed(2)} / Auxílio Alimentação: R$${auxAlimentacao.toFixed(2)}\nSalário Final: R$${(salInicial + auxAlimentacao).toFixed(2)}`;
 }
 
 /* EXC 6 - Cálculo Aritmético */

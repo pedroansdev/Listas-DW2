@@ -63,18 +63,24 @@
     <form name="formPagamento">
         <p>Insira o código do funcionário: <input type="number" name="codigo"></p>
         <p>Insira as horas trabalhadas no mês: <input type="number" name="horasTrab"></p>
-        <p><label for="turnos">Escolha o turno: </label></p>
-        <select name="turnos" id="turnos">
-            <option value="M">Matutino</option>
-            <option value="V">Vespertino</option>
-            <option value="N">Noturno</option>
-        </select>
-        <p><label for="categoria">Escolha a categoria: </label></p>
-        <select name="categoria" id="categoria">
-            <option value="F">Funcionário</option>
-            <option value="G">Gerente</option>
-        </select>
+        <p>Insira o valor do salário mínimo: <input type="number" name="salMinimo"></p>
+        <p>Escolha o turno:
+            <select name="turnos" id="turnos">
+                <option value="M">Matutino</option>
+                <option value="V">Vespertino</option>
+                <option value="N">Noturno</option>
+            </select>
+        </p>
+        <p>Escolha a categoria: 
+            <select name="categorias" id="categorias">
+                <option value="F">Funcionário</option>
+                <option value="G">Gerente</option>
+            </select> 
+        </p>
+        <input type="button" name="btn_calcularSalario" value="Calcular Pagamento" onclick="CalcPagamento()">
+        <input type="reset" name="btn_cancelar5" value="Cancelar">
     </form>
+    <h3 id="resSalario"></h3>
     
     <hr>
 
@@ -84,7 +90,7 @@
         <p>Insira o segundo valor: <input type="number" name="num2"></p>
         <p>Insira o tipo de cálculo: <input type="text" name="operacao"></p>
         <input type="button" name="btn_calcularAritm" value="Realizar Cálculo" onclick="CalcAritm()">
-        <input type="reset" name="btn_cancelar5" value="Cancelar">
+        <input type="reset" name="btn_cancelar6" value="Cancelar">
     </form>
     <h3 id="resAritmetico"></h3>
 
@@ -94,7 +100,7 @@
     <form name="formData">
         <p>Insira a data no seguinte formato dd/mm/yyyy: <input type="text" name="data"></p>
         <input type="button" name="btn_transData" value="Transformar Data" onclick="TransData()">
-        <input type="reset" name="btn_cancelar6" value="Cancelar">
+        <input type="reset" name="btn_cancelar7" value="Cancelar">
     </form>
     <h3 id="resData"></h3>
 </body> 

@@ -4,104 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista 1 de DW2</title>
+    <link rel="stylesheet" href="../style.css">
     <script src="funcoes.js" defer></script>
 </head>
 <body>
-    <h1>Formulário para o IMC</h1>
-    <form name="formIMC">
-        <p>Insira seu nome: <input type="text" name="nome"></p>
-        <p>Insira a sua altura(cm): <input type="number" name="altura"></p>
-        <p>Insira seu peso(kg): <input type="number" name="peso"></p>
-        <input type="button" name="btn_calcular" value="Calcular IMC" onclick="CalcIMC()">
-        <input type="reset" name="btn_cancelar" value="Cancelar">
-    </form>
-    <h3 id="resIMC"></h3>
+    <header>
+        <nav>
+            <ul>
+                <li> <a href="../index.html">Início</a> </li>
+                <li> <a href="#exc1">Exc 1</a> </li>
+                <li> <a href="#exc2">Exc 2</a> </li>
+                <li> <a href="#exc3">Exc 3</a> </li>
+                <li> <a href="#exc4">Exc 4</a> </li>
+                <li> <a href="#exc5">Exc 5</a> </li>
+                <li> <a href="#exc6">Exc 6</a> </li>
+                <li> <a href="#exc7">Exc 7</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 id="exc1">Formulário para o IMC</h1>
+        <form name="formIMC">
+            <p>Insira seu nome: <input type="text" name="nome"></p>
+            <p>Insira a sua altura(cm): <input type="number" name="altura"></p>
+            <p>Insira seu peso(kg): <input type="number" name="peso"></p>
+            <input type="button" name="btn_calcular" value="Calcular IMC" onclick="CalcIMC()">
+            <input type="reset" name="btn_cancelar" value="Cancelar">
+        </form>
+        <h3 id="resIMC"></h3>
 
-    <hr>
+        <hr>
 
-    <h1>Formulário para a Faixa Etária</h1>
-    <form name="formFE">
-        <p>Insira sua idade: <input type="number" name="idade"></p>
-        <input type="button" name="btn_revelar" value="Revelar faixa etária" onclick="FaixaEtaria()">
-        <input type="reset" name="btn_cancelar2" value="Cancelar">
-    </form>
-    <h3 id="resFE"></h3>
+        <h1 id="exc2">Formulário para a Faixa Etária</h1>
+        <form name="formFE">
+            <p>Insira sua idade: <input type="number" name="idade"></p>
+            <input type="button" name="btn_revelar" value="Revelar faixa etária" onclick="FaixaEtaria()">
+            <input type="reset" name="btn_cancelar2" value="Cancelar">
+        </form>
+        <h3 id="resFE"></h3>
 
-    <hr>
+        <hr>
 
-    <h1>Formulário para a Média Ponderada</h1>
-    <form name="formMP">
-        <p>Insira a nota da atividade prática: <input type="number" name="atvPratica">(P2)</p>
-        <p>Insira a nota da prova semestral: <input type="number" name="provaSem">(P5)</p>
-        <p>Insira a nota do trabalho teórico: <input type="number" name="trabTeorico">(P3)</p>
-        <input type="button" name="btn_calcularMedia" value="Calcular Média" onclick="CalcMedia()">
-        <input type="reset" name="btn_cancelar3" value="Cancelar">
-    </form>
-    <h3 id="resMP"></h3>
+        <h1 id="exc3">Formulário para a Média Ponderada</h1>
+        <form name="formMP">
+            <p>Insira a nota da atividade prática: <input type="number" name="atvPratica">(P2)</p>
+            <p>Insira a nota da prova semestral: <input type="number" name="provaSem">(P5)</p>
+            <p>Insira a nota do trabalho teórico: <input type="number" name="trabTeorico">(P3)</p>
+            <input type="button" name="btn_calcularMedia" value="Calcular Média" onclick="CalcMedia()">
+            <input type="reset" name="btn_cancelar3" value="Cancelar">
+        </form>
+        <h3 id="resMP"></h3>
 
-    <hr>
+        <hr>
 
-    <h1>Formulário para o Fretamento de Peças</h1>
-    <form name="formFrete">
-        <p>Insira a distância em km: <input type="number" name="distancia"></p>
-        <p>Insira a quantia de peças: <input type="number" name="quantia"></p>
-        <p>Insira o preço do combustível: <input type="number" name="litro"></p>
-        <p><label for="regioes">Escolha a região: </label></p>
-        <select name="regioes" id="regioes">
-            <option value="sul">1 - SUL</option>
-            <option value="sudeste">2 - SUDESTE</option>
-            <option value="centro">3 - CENTRO-OESTE</option>
-        </select>
-        <p>Você deseja rastreamento das peças? <input type="radio" name="escolha" id="sim"> SIM <input type="radio" name="escolha" id="nao"> NÃO </p>
-        <input type="button" name="btn_calcularFrete" value="Calcular Frete" onclick="CalcFrete()">
-        <input type="reset" name="btn_cancelar4" value="Cancelar">
-    </form>
-    <h3 id="resFrete"></h3>
+        <h1 id="exc4">Formulário para o Fretamento de Peças</h1>
+        <form name="formFrete">
+            <p>Insira a distância em km: <input type="number" name="distancia"></p>
+            <p>Insira a quantia de peças: <input type="number" name="quantia"></p>
+            <p>Insira o preço do combustível: <input type="number" name="litro"></p>
+            <p>Escolha a região: 
+                <select name="regioes" id="regioes">
+                    <option value="sul" class="option">1 - SUL</option>
+                    <option value="sudeste" class="option">2 - SUDESTE</option>
+                    <option value="centro" class="option">3 - CENTRO-OESTE</option>
+                </select>
+            </p>
+            <p>Você deseja rastreamento das peças? <input type="radio" name="escolha" id="sim"> SIM <input type="radio" name="escolha" id="nao"> NÃO </p>
+            <input type="button" name="btn_calcularFrete" value="Calcular Frete" onclick="CalcFrete()">
+            <input type="reset" name="btn_cancelar4" value="Cancelar">
+        </form>
+        <h3 id="resFrete"></h3>
 
-    <hr>
-    <h1> Formulário para a Folha de Pagamento </h1>
-    <form name="formPagamento">
-        <p>Insira o código do funcionário: <input type="number" name="codigo"></p>
-        <p>Insira as horas trabalhadas no mês: <input type="number" name="horasTrab"></p>
-        <p>Insira o valor do salário mínimo: <input type="number" name="salMinimo"></p>
-        <p>Escolha o turno:
-            <select name="turnos" id="turnos">
-                <option value="M">Matutino</option>
-                <option value="V">Vespertino</option>
-                <option value="N">Noturno</option>
-            </select>
-        </p>
-        <p>Escolha a categoria: 
-            <select name="categorias" id="categorias">
-                <option value="F">Funcionário</option>
-                <option value="G">Gerente</option>
-            </select> 
-        </p>
-        <input type="button" name="btn_calcularSalario" value="Calcular Pagamento" onclick="CalcPagamento()">
-        <input type="reset" name="btn_cancelar5" value="Cancelar">
-    </form>
-    <h3 id="resSalario"></h3>
-    
-    <hr>
+        <hr>
 
-    <h1> Formulário para o Cálculo Aritmético </h1>
-    <form name="calcAritmetico">
-        <p>Insira o primeiro valor: <input type="number" name="num1"></p>
-        <p>Insira o segundo valor: <input type="number" name="num2"></p>
-        <p>Insira o tipo de cálculo: <input type="text" name="operacao"></p>
-        <input type="button" name="btn_calcularAritm" value="Realizar Cálculo" onclick="CalcAritm()">
-        <input type="reset" name="btn_cancelar6" value="Cancelar">
-    </form>
-    <h3 id="resAritmetico"></h3>
+        <h1 id="exc5"> Formulário para a Folha de Pagamento </h1>
+        <form name="formPagamento">
+            <p>Insira o código do funcionário: <input type="number" name="codigo"></p>
+            <p>Insira as horas trabalhadas no mês: <input type="number" name="horasTrab"></p>
+            <p>Insira o valor do salário mínimo: <input type="number" name="salMinimo"></p>
+            <p>Escolha o turno:
+                <select name="turnos" id="turnos">
+                    <option value="M" class="option">Matutino</option>
+                    <option value="V" class="option">Vespertino</option>
+                    <option value="N" class="option">Noturno</option>
+                </select>
+            </p>
+            <p>Escolha a categoria: 
+                <select name="categorias" id="categorias">
+                    <option value="F" class="option">Funcionário</option>
+                    <option value="G" class="option">Gerente</option>
+                </select> 
+            </p>
+            <input type="button" name="btn_calcularSalario" value="Calcular Pagamento" onclick="CalcPagamento()">
+            <input type="reset" name="btn_cancelar5" value="Cancelar">
+        </form>
+        <h3 id="resSalario"></h3>
+        
+        <hr>
 
-    <hr>
+        <h1 id="exc6"> Formulário para o Cálculo Aritmético </h1>
+        <form name="calcAritmetico">
+            <p>Insira o primeiro valor: <input type="number" name="num1"></p>
+            <p>Insira o segundo valor: <input type="number" name="num2"></p>
+            <p>Insira o tipo de cálculo: <input type="text" name="operacao"></p>
+            <input type="button" name="btn_calcularAritm" value="Realizar Cálculo" onclick="CalcAritm()">
+            <input type="reset" name="btn_cancelar6" value="Cancelar">
+        </form>
+        <h3 id="resAritmetico"></h3>
 
-    <h1> Formulário para a Data por Extenso </h1>
-    <form name="formData">
-        <p>Insira a data no seguinte formato dd/mm/yyyy: <input type="text" name="data"></p>
-        <input type="button" name="btn_transData" value="Transformar Data" onclick="TransData()">
-        <input type="reset" name="btn_cancelar7" value="Cancelar">
-    </form>
-    <h3 id="resData"></h3>
+        <hr>
+
+        <h1 id="exc7"> Formulário para a Data por Extenso </h1>
+        <form name="formData">
+            <p>Insira a data no seguinte formato dd/mm/yyyy: <input type="text" name="data"></p>
+            <input type="button" name="btn_transData" value="Transformar Data" onclick="TransData()">
+            <input type="reset" name="btn_cancelar7" value="Cancelar">
+        </form>
+        <h3 id="resData"></h3>
+    </main>
 </body> 
 </html>
